@@ -1,0 +1,42 @@
+doctype html
+html
+  head
+    title= title
+
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+
+
+    //CSS
+    link(href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/paper/bootstrap.min.css", rel="stylesheet")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/dhtmlxcombo.css')
+    link(rel='stylesheet', href='/stylesheets/dhtmlxcalendar.css')
+
+    //Fonts
+    link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
+
+  body
+    nav.navbar.navbar-default.navbar-fixed-top
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#nav-menu')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#') Train Schedule
+        #nav-menu.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='#') About
+
+    block content
+
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    script(src='/javascripts/dhtmlxcombo.js')
+    script(src='/javascripts/dhtmlxcalendar.js')
+    script(src='/javascripts/custom.js')
+
+    footer
+      .navbar.navbar-default.navbar-fixed-bottom.text-center
+        p Made with #[i.fa.fa-heart]

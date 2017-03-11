@@ -1,0 +1,25 @@
+extends layout
+
+block content
+
+  section.content
+    .container
+      .flex-container
+        .center
+          .row.line-space-md
+            .col-lg-6.col-md-6.col-sm-12.col-xs-12
+              p From
+              select.col-lg-12.combo#from-station
+                each station in stationList
+                  option(value=station.stationID)=station.stationName
+
+            .col-lg-6.col-md-6.col-sm-12.col-xs-12
+              p To
+              select.col-lg-12.combo#to-station
+                each station in stationList
+                  option(value=station.stationID)=station.stationName
+          .row.line-space-md
+            .col-lg-12.col-md-12.col-sm-12.col-xs-12
+              p Date
+              input(type='text').col-lg-6.form-control#calendar
+
