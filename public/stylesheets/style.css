@@ -17,9 +17,20 @@ body {
 }
 
 .center{
-  width: 90%;
+  width: 100%;
 }
 
 .line-space-md{
   padding-bottom: 40px;
+}
+
+@media only screen and (min-width:768px){
+  .flex-container{
+    display: flex;
+    justify-content: center;
+  }
+
+  .center{
+    width: 90%;
+  }
 }
