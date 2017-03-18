@@ -24,6 +24,11 @@ body {
   padding-bottom: 40px;
 }
 
+#table{
+  background-color: wheat;
+  height: 50px;
+}
+
 @media only screen and (min-width:768px){
   .flex-container{
     display: flex;
