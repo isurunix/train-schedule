@@ -28,6 +28,18 @@ function searchTrain() {
 
   $.get(url, function (data) {
     console.log(data);
-    $('#table').text(data);
+    var resultCount = data.NOFRESULTS;
+    if(resultCount > 0){
+      var resArrayDirect = data.RESULTS.directTrains.trainsList;
+        $('#example').DataTable( {
+            data: resArrayDirect,
+            columns: [
+                { data: 'depatureTime', title: 'Departure' },
+                { data: 'trainFrequncy', title: 'Availability' },
+                { data: 'trainType', title: 'Type' },
+                { data: 'arrivalTimeEndStation', title: 'Arrival' }
+            ],
+        } );
+    }
   });
 }

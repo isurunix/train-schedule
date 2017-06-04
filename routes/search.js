@@ -9,8 +9,8 @@ var router = express.Router();
 
 router.get('/',function (req, res, next) {
     request({
-        uri: "http://railway.lankagate.gov.lk/train/searchTrain?startStationID=" + req.query.from + "&endStationID=" + req.query.to + "&searchDate=" + req.query.date +
-        "&startTime=00:00:00&endTime=23:59:00&lang=en",
+        uri: "http://railway.lankagate.gov.lk/train/searchTrain?startStationID=" + req.query.from + "&endStationID="
+        + req.query.to + "&searchDate=" + req.query.date + "&startTime=00:00:00&endTime=23:59:00&lang=en",
         method: "GET",
         timeout: 10000,
         followRedirect: true,
