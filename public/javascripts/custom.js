@@ -29,17 +29,29 @@ function searchTrain() {
   $.get(url, function (data) {
     console.log(data);
     var resultCount = data.NOFRESULTS;
-    if(resultCount > 0){
+    if (resultCount > 0) {
       var resArrayDirect = data.RESULTS.directTrains.trainsList;
-        $('#example').DataTable( {
-            data: resArrayDirect,
-            columns: [
-                { data: 'depatureTime', title: 'Departure' },
-                { data: 'trainFrequncy', title: 'Availability' },
-                { data: 'trainType', title: 'Type' },
-                { data: 'arrivalTimeEndStation', title: 'Arrival' }
-            ],
-        } );
+      $('#example').DataTable({
+        destroy: true,
+        data: resArrayDirect,
+        columns: [{
+            data: 'depatureTime',
+            title: 'Departure'
+          },
+          {
+            data: 'trainFrequncy',
+            title: 'Availability'
+          },
+          {
+            data: 'trainType',
+            title: 'Type'
+          },
+          {
+            data: 'arrivalTimeEndStation',
+            title: 'Arrival'
+          }
+        ],
+      });
     }
   });
 }
