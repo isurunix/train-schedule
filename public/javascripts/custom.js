@@ -4,30 +4,42 @@
 var fromCombo, toCombo;
 var calendar;
 $(document).ready(function () {
-   fromCombo = dhtmlXComboFromSelect('from-station');
-   fromCombo.enableFilteringMode(true);
-   fromCombo.selectOption(0);
+  fromCombo = dhtmlXComboFromSelect('from-station');
+  fromCombo.enableFilteringMode(true);
+  fromCombo.selectOption(0);
 
-   toCombo = dhtmlXComboFromSelect('to-station');
-   toCombo.enableFilteringMode(true);
-   toCombo.selectOption(0);
+  toCombo = dhtmlXComboFromSelect('to-station');
+  toCombo.enableFilteringMode(true);
+  toCombo.selectOption(0);
 
-   // calendar = new dhtmlXCalendarObject("calendar");
-   $("#calendar").pickadate({
-      format: 'yyyy-mm-dd',
-      formatSubmit: 'yyyy-mm-dd'
-   });
+  // calendar = new dhtmlXCalendarObject("calendar");
+  calendar = $("#calendar").pickadate({
+    format: 'yyyy-mm-dd',
+    formatSubmit: 'yyyy-mm-dd'
+  });
 
 });
 
 function searchTrain() {
-    var fromStationCode = $('#from-station').val();
-    var toStationCode = $('#to-station').val();
-    var date = $('#calender').val();
-    var url = "http://railway.lankagate.gov.lk/train/searchTrain?startStationID="+fromStationCode+"&endStationID="+toStationCode+"&searchDate="+date+
-        "&startTime=00:00:00&endTime=23:59:00&lang=en"
+  var fromStationCode = fromCombo.getSelectedValue();
+  var toStationCode = toCombo.getSelectedValue();
+  var date = calendar.get()[0].value;
+  var url = "/search?from=" + fromStationCode + "&to=" + toStationCode + "&date=" + date;
 
-    $.get(url, function (data) {
-       $('#table').val(data);
-    });
+  $.get(url, function (data) {
+    console.log(data);
+    var resultCount = data.NOFRESULTS;
+    if(resultCount > 0){
+      var resArrayDirect = data.RESULTS.directTrains.trainsList;
+        $('#example').DataTable( {
+            data: resArrayDirect,
+            columns: [
+                { data: 'depatureTime', title: 'Departure' },
+                { data: 'trainFrequncy', title: 'Availability' },
+                { data: 'trainType', title: 'Type' },
+                { data: 'arrivalTimeEndStation', title: 'Arrival' }
+            ],
+        } );
+    }
+  });
 }
