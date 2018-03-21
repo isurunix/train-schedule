@@ -12,9 +12,10 @@ Live version hosted on heroku at [train-schedule-sl.herokuapp.com](https://train
 But should it be a reason to not build another one?  
 I wanted to explore NodeJS and template engines. So instead of just going through tutorial I felt like building this. :blush:
  
-### ICTA API ?? How did you do that ?
+### ICTA API ??
 
-* Shhh.. It's little secret. If you really wanna know drop me a msg.
+* Well, it's a well know fact that ICTA have an API where we can get these schedule data. But the problem is that this API may not be readily available to the public. As the time of updating this README (03/18) you have to contact ICTA to get the API access configured.
+* Drop me a mail if you need to know more info regarding this.
   
 
 
