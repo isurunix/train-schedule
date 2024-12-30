@@ -15,7 +15,9 @@ I wanted to explore NodeJS and template engines. So instead of just going throug
 ### ICTA API ??
 
 * Well, it's a well know fact that ICTA have an API where we can get these schedule data. But the problem is that this API may not be readily available to the public. As the time of updating this README (03/18) you have to contact ICTA to get the API access configured.
-* Drop me a mail if you need to know more info regarding this.
+
+* **Update**.
+    * Seems ICTA API is no longer available and not public. Please refer to the discussion at https://github.com/isurunix/train-schedule/discussions/4 
   
 
 
